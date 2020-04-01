@@ -17,7 +17,7 @@
 %% ===================================================================
 
 print_help(Parser) ->
-    print_help(standard_error, Parser, []).
+    print_help(standard_io, Parser, []).
 
 print_help(Device, Parser) ->
     print_help(Device, Parser, []).
@@ -212,7 +212,7 @@ maybe_print_version_opt(false, _) ->
 %% ===================================================================
 
 print_version(Parser) ->
-    print_version(standard_error, Parser, []).
+    print_version(standard_io, Parser, []).
 
 print_version(Device, Parser) ->
     print_version(Device, Parser, []).
@@ -242,7 +242,7 @@ formatted_version_extra(Pars, #fmt{page_width=Width}) ->
 %% ===================================================================
 
 print_error(Err, Parser) ->
-    print_error(standard_error, Err, Parser).
+    print_error(standard_io, Err, Parser).
 
 print_error(Device, Err, Parser) ->
     {SuggestHelp, Msg} = format_error_msg(Err),
@@ -281,7 +281,7 @@ format_error_msg(Msg) when is_list(Msg); is_binary(Msg) ->
 %% ===================================================================
 
 print_usage_error(Parser) ->
-    print_usage_error(standard_error, Parser).
+    print_usage_error(standard_io, Parser).
 
 print_usage_error(Device, Parser) ->
     Prog = cli_parser:prog(Parser),
