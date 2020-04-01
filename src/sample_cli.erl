@@ -13,7 +13,7 @@ handle_parsed({{ok, print_version}, P}) ->
 handle_parsed({{ok, Parsed}, _P}) ->
     handle_args(Parsed);
 handle_parsed({{error, Err}, P}) ->
-    cli:print_error_and_halt(Err, P).
+    cli:print_error(Err, P).
 
 sample_parser() ->
     cli:parser(
